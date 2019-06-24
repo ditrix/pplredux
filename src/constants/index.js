@@ -1,0 +1,8 @@
+export const GET_PEOPLE = 'GET_PEOPLE'
+export const CLEAR_DATA = 'CLEAR_DATA'
+export const FETCH_DATA = 'FETCH_DATA'
+export const FETCHING_SUCCESS = 'FETCHING_SUCCESS'
+export const EDIT_DATA = 'EDIT_DATA'
+export const POST_DATA = 'POST_DATA'
+export const SORT_DATA = 'SORT_DATA'
+export const DELETE_RECORD = 'DELETE_RECORD' 

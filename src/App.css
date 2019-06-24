@@ -34,8 +34,23 @@
 */
 header, footer {
   background-color: #282c34;
-  padding: 5px;
   color: lightgray;
+  padding: 5px 
+}
+nav {
+  margin: 0px 15px;
+  padding: 5px;
+  text-align: right;
+}
+
+nav button {
+  padding: 5px 15px;
+  border: 1px #282c34 solid;
+  border-radius: 3px;
+  background-color: gray;
+  color: white;
+  margin: 0px 15px;
+  
 }
 
 main {
