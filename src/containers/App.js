@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import {actionGetPeople,actionClearPeople} from '../action'
 import {data} from '../devdata/data'
+import Peoples from '../components/Peoples'
 import '../App.css';
 
 class App extends Component {
@@ -29,7 +30,9 @@ class App extends Component {
           <button onClick={this.butttonClearDataClicked.bind(this)}>CLEAR</button>
         </nav>
         <main>
-          main
+         
+          <Peoples people={people} />
+{/*          
           <ul>
            {people.map( (person ,index) => 
             <li key={index}>
@@ -40,7 +43,8 @@ class App extends Component {
             {person.login.username}
             </li> )}
           </ul>
-         </main>
+
+*/}         </main>
         <footer>footer</footer>
       </div>
     );

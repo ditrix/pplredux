@@ -32,6 +32,12 @@
   }
 }
 */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 header, footer {
   background-color: #282c34;
   color: lightgray;
@@ -60,3 +66,54 @@ main {
   padding: 10px;
 
 }
+
+ul {
+  list-style: none;
+  
+}
+
+
+.person-row {
+  float: none;
+  border: 1px lightgray solid;
+  color: gray;
+  margin: 2px 0px;
+}
+
+.person-row:hover{
+  border-color: gray;
+  color: black;
+}
+
+.person-row > div {
+  display: inline-block;
+  margin: 5px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+
+.grid-person-login {
+  width: 140px;
+  
+}
+
+.grid-person-name {
+  width: 200px;
+  
+}
+
+.grid-person-email {
+  width: 300px; 
+  
+}
+
+.grid-person-phone {
+  width: 150px;
+
+}
+
+/*.grid-person-ico, .grid-person-login, .grid-person-name, .grid-person-email, .grid-person-phone {
+  float: left;
+}*/
