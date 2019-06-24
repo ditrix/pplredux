@@ -15,7 +15,7 @@ class PersonRow extends Component {
         </div>
           
         <div className="grid-person-name">
-					{name.first}
+					{`${name.first}  ${name.last}`}
         </div>
         
         <div className="grid-person-email">

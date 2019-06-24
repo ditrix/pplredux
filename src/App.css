@@ -67,11 +67,6 @@ main {
 
 }
 
-ul {
-  list-style: none;
-  
-}
-
 
 .person-row {
   float: none;
@@ -92,7 +87,15 @@ ul {
   vertical-align: middle;
 }
 
+.grid-person-ico {
+  height: 50px;
+  width: 50px;  
+  border: 1px lightgray solid;
+}
 
+.grid-person-ico img {
+  visibility: hidden;
+}
 
 .grid-person-login {
   width: 140px;
@@ -113,6 +116,24 @@ ul {
   width: 150px;
 
 }
+
+.grid-title {
+  float: none;
+  border: 1px lightgray solid;
+  color: gray;
+  margin: 2px 0px;
+
+}
+
+.grid-title > div {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+
 
 /*.grid-person-ico, .grid-person-login, .grid-person-name, .grid-person-email, .grid-person-phone {
   float: left;
