@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import {actionGetPeople,actionClearPeople} from '../action'
-
+import {data} from '../devdata/data'
 import '../App.css';
 
 class App extends Component {
   butttonGetDataClicked(){
     console.log('getDataClick')
+    this.props.getData(data)
   }
 
   butttonClearDataClicked(){
@@ -17,7 +18,9 @@ class App extends Component {
   render(){
     console.log(this.props)
     const {people} = this.props
-    console.log(people)
+    console.log(data[0].picture.medium)
+   // console.log(data)
+   // const people = data
     return (
       <div className="container">
         <header>header</header>
@@ -28,7 +31,14 @@ class App extends Component {
         <main>
           main
           <ul>
-            {people.map( (person ,index) => <li key={index}>{person.name}</li> )}
+           {people.map( (person ,index) => 
+            <li key={index}>
+            <img src={person.picture.thumbnail}/>
+           
+            {person.name.first}{' '}
+            {person.email}{' '}
+            {person.login.username}
+            </li> )}
           </ul>
          </main>
         <footer>footer</footer>
@@ -43,7 +53,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToPeops = dispatch => {
   return {
-    clearPeople: () => dispatch(actionClearPeople())
+    clearPeople: () => dispatch(actionClearPeople()),
+    getData: (people) => dispatch(actionGetPeople(people))
   }
 }
 
