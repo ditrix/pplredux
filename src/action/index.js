@@ -1,4 +1,4 @@
-import {GET_PEOPLE,CLEAR_DATA} from '../constants'
+import {GET_PEOPLE,CLEAR_DATA, VIEW_PERSON} from '../constants'
 export function actionGetPeople(people){
 	return {
 		type: GET_PEOPLE,
@@ -11,3 +11,4 @@ export function actionClearPeople(){
 		type: CLEAR_DATA,
 	}
 }
+

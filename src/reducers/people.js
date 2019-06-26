@@ -1,14 +1,18 @@
-import {GET_PEOPLE,CLEAR_DATA} from '../constants'
+import {GET_PEOPLE,CLEAR_DATA, FETCH_DATA, FETCHING_SUCCESS} from '../constants'
 
 
-const initialState =  []
+const initialState =  {
+	isFeathing: false,
+	isActive: false,
+	people: [],
+}
 
-export function getPeople(state= initialState, action){
+export const  reducerPeople = (state= initialState, action) => {
 	switch (action.type){
 		case GET_PEOPLE:
-			return action.payholder
+			return {...state, people: action.payholder, isActive: true}
 		case CLEAR_DATA:
-			return []	
+			return {...state, people: [], isActive: false }	
 		default:
 			return state	
 	}

@@ -1,10 +1,14 @@
 import React,{Component} from 'react'
 
 class PersonRow extends Component {
+  handlePersonClick(e){
+    //console.log(this.props.index)
+    this.props.getRecord(this.props.index)
+  }
 	render(){
 		const {picture,login,name, email, phone} = this.props.person;
 		return(
-			<div className="person-row">
+			<div className="person-row" onClick={this.handlePersonClick.bind(this)}>
 		      
 		    <div className="grid-person-ico">
           <img src={picture.thumbnail} alt={name.first}/>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {actionGetPeople,actionClearPeople} from '../action'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
+import Person from '../components/Person'
 import '../App.css';
 
 class App extends Component {
@@ -18,8 +19,8 @@ class App extends Component {
 
   render(){
     console.log(this.props)
-    const {people} = this.props
-    console.log(data[0].picture.medium)
+    const {people} = this.props.people
+    const {person} = this.props.person
    // console.log(data)
    // const people = data
     return (
@@ -30,21 +31,11 @@ class App extends Component {
           <button onClick={this.butttonClearDataClicked.bind(this)}>CLEAR</button>
         </nav>
         <main>
-         
+        
           <Peoples people={people} />
-{/*          
-          <ul>
-           {people.map( (person ,index) => 
-            <li key={index}>
-            <img src={person.picture.thumbnail}/>
-           
-            {person.name.first}{' '}
-            {person.email}{' '}
-            {person.login.username}
-            </li> )}
-          </ul>
-
-*/}         </main>
+        
+          <Person person={person} />
+      </main>
         <footer>footer</footer>
       </div>
     );
@@ -52,7 +43,13 @@ class App extends Component {
 }
 
 const mapStateToProps = store => {
-  return {people: store.people,}
+  return {
+    people: store.people,
+    peopleActive: store.people.isActive,
+    person: store.person,
+    personIsActive: store.person.isActive,
+
+  }
 }
 
 const mapDispatchToPeops = dispatch => {

@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux'
-import {getPeople} from './people'
+import {reducerPeople} from './people'
+import {reducerPerson} from './person'
 
 export 
 	const rootReducer = combineReducers({
-		people: getPeople,
+		people: reducerPeople,
+		person: reducerPerson,
 	})

@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import PersonRow from './PersonRow'
 
 class Peoples extends Component {
-
+  getRecord(value){
+    console.log(value)
+  }
 	render(){
 		const people = this.props.people
 		return(
@@ -16,7 +18,7 @@ class Peoples extends Component {
         </div>
      
       	{people.map( (person ,index) => 
-            <PersonRow key={index} person={person}/>
+            <PersonRow key={index} index={index} person={person} getRecord={this.getRecord.bind(this)}/>
           )}
      
       </> 

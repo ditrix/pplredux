@@ -93,9 +93,6 @@ main {
   border: 1px lightgray solid;
 }
 
-.grid-person-ico img {
-  visibility: hidden;
-}
 
 .grid-person-login {
   width: 140px;
@@ -133,6 +130,9 @@ main {
 
 }
 
+.grid-person-ico img {
+  /*visibility: hidden;*/
+}
 
 
 /*.grid-person-ico, .grid-person-login, .grid-person-name, .grid-person-email, .grid-person-phone {
