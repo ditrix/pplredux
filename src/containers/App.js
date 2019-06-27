@@ -4,6 +4,7 @@ import {actionGetPeople,actionClearPeople} from '../action'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
 import Person from '../components/Person'
+import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
@@ -25,10 +26,12 @@ class App extends Component {
    // const people = data
     return (
       <div className="container">
-        <header>header</header>
+        <header>
+           <div><img src={logo} className="App-logo" alt="logo" /></div><div><h1>0-800-50-15-60</h1><p>безкоштовна багатоканальна телефонна лінія</p></div>
+        </header>
         <nav>
-          <button onClick={this.butttonGetDataClicked.bind(this)}>GET</button>
-          <button onClick={this.butttonClearDataClicked.bind(this)}>CLEAR</button>
+          <button onClick={this.butttonGetDataClicked.bind(this)}>Загрузить</button>
+          <button onClick={this.butttonClearDataClicked.bind(this)}>Очистить</button>
         </nav>
         <main>
         
