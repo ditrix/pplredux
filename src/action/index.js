@@ -1,7 +1,9 @@
-import {GET_PEOPLE,CLEAR_DATA, VIEW_PERSON} from '../constants'
+import {GET_PEOPLE, CLEAR_DATA, LOAD_PEOPLE_REQUEST, LOAD_PEOPLE_SUCCESS} from '../constants'
+
+
 export function actionGetPeople(people){
 	return {
-		type: GET_PEOPLE,
+   	type: GET_PEOPLE,
 		payload: people,
 	}
 }
@@ -12,3 +14,17 @@ export function actionClearPeople(){
 	}
 }
 
+export function actionLoadPeople(){		
+		
+		return dispatch => {
+
+				dispatch({type:LOAD_PEOPLE_REQUEST})
+
+				fetch('https://api.randomuser.me/?results=30')
+	      .then(resp => resp.json()) // Transform the data into json
+	      .then(data => dispatch({type:LOAD_PEOPLE_SUCCESS,payload: data.results}))
+
+			}
+			
+
+}
