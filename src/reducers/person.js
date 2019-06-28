@@ -39,7 +39,7 @@ const initialState = {
 export const reducerPerson = (state = initialState, action) => {
 	switch(action.type){
 		case VIEW_PERSON: 
-			return {...state, person: action.payholder}
+			return {...state, person: action.payload}
 		default:
 			return state	
 	}

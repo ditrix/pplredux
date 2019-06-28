@@ -10,7 +10,7 @@ const initialState =  {
 export const  reducerPeople = (state= initialState, action) => {
 	switch (action.type){
 		case GET_PEOPLE:
-			return {...state, people: action.payholder, isActive: true}
+			return {...state, people: action.payload, isActive: true}
 		case CLEAR_DATA:
 			return {...state, people: [], isActive: false }	
 		default:
