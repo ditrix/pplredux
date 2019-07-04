@@ -115,16 +115,12 @@ nav {
   background-color: #eaf2f3;
   font-size: 1.2em;
   border-radius: 3px;
+  width: 120px;
 }
 
-.btn-enabled {
-  color: blue;
-  font-weight: 600;
-}
-
-.btn-disabled {
-  color: lightblue;
-  font-weight: normal;
+.user-block button:hover{
+  color: white;
+  background-color: #364657;
 }
 
 nav button {

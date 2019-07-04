@@ -1,9 +1,9 @@
-import {GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_ERROR} from '../constants'
+import {GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_ERROR, USER_LOGOUT} from '../constants'
 
 const initialState = {
 	userID: null,
-	userName: '',
-	userPic: '',
+	userName: 'anonimus',
+	userPic: 'nouserpic.png',
 	isFetching: false,
 	isLoged: false,
 	error: '',
@@ -16,7 +16,9 @@ export const reducerUser = (state = initialState, action) => {
 		case GET_USER_ERROR:
 			return {...state, isFetching: false, isLoged: false, error: 'error of logged, try again'}
 		case GET_USER_SUCCESS:
-			return {...state,  state: action.payload, isFetching: false, isLoged: true, error: ''}
+			return {...state,  userName: 'Dmitry', isFetching: false, isLoged: true, error: ''}
+		case USER_LOGOUT:
+			return {...state, userName: 'noname', isLoged: false}
 		default:
 			return state			
 	}

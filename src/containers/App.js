@@ -22,13 +22,18 @@ class App extends Component {
   }
 
   butttonAuthClick(e){
-      console.log(e.target.value)
+//      console.log(e.target.value)
+    //  console.log(this.props.user)
+      (this.props.user.isLoged)?
+        this.props.logoutUser():
+        this.props.loginUser()
   }
 
 
   render(){
   
     const {people} = this.props.people
+    const {userName, isLoged, isFetching, userPic} = this.props.user
     return (
       <div className="container">
         <header>
@@ -36,10 +41,11 @@ class App extends Component {
            <div><h1>0-800-50-15-60</h1><p>безкоштовна багатоканальна телефонна лінія</p></div>
            <div><h1>050-450-15-60</h1><p>вартість дзвінків відповідно до тарифів Вашого оператора</p></div>
            <div className="user-block">
-             <h3>{this.props.user}</h3>
-             <img src={logo}/>
-             <button  className="button-login btn-enabled" onClick={this.butttonAuthClick.bind(this)} value="login">Login</button>  
-             <button  className="button-login btn-disabled" onClick={this.butttonAuthClick.bind(this)} value="logout">Logout</button>  
+             <h3>{userName}</h3>
+             <img src={userPic}/>
+             <button  className="button-login" onClick={this.butttonAuthClick.bind(this)} value="login">
+              {(isLoged)?<span>Logout</span>:<span>Login</span>}
+             </button>  
           </div>
         </header>
         <nav>
@@ -61,7 +67,7 @@ class App extends Component {
 const mapStateToProps = store => {
   return {
     people: store.people,
-    user: 'noname'
+    user: store.user,
     /*person: store.person,
     personIsActive: store.person.isActive,*/
 
@@ -73,7 +79,8 @@ const mapDispatchToPeops = dispatch => {
     clearPeople: () => dispatch(actionClearPeople()),
     getData: (people) => dispatch(actionGetPeople(people)),
     loadData: () => dispatch(actionLoadPeople()),
-
+    loginUser: () => dispatch({type: 'GET_USER_SUCCESS' }),
+    logoutUser: () => dispatch({type: 'USER_LOGOUT'})
   }
 }
 
