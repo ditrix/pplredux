@@ -26,7 +26,8 @@ export const data =
 	},
 	"dob":{"date":"1953-01-20T15:07:37Z","age":66},
 	"registered":{"date":"2016-03-20T15:31:06Z","age":3},
-	"phone":"(710)-235-2274","cell":"(950)-739-2051",
+	"phone":"(710)-235-2274",
+	"cell":"(950)-739-2051",
 	"id":{"name":"","value":null},
 	"picture":{
 		"large":"https://randomuser.me/api/portraits/men/33.jpg",

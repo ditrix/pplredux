@@ -71,16 +71,65 @@ nav {
   text-align: right;
   background-color: #364657;
 }
-
-nav button {
- /* padding: 5px 15px;
+/*
+ .button-login{
+    padding: 5px 15px;
   border: 1px #282c34 solid;
-  border-radius: 3px;
   background-color: #1fb6ff;
   color: white;
-  margin: 0px 15px;*/
-  
+  margin: 0px 15px;
+ }
+*/
+.button-login-enabled {
+  float: right;
+}
+
+.btn-login-disabled {
+  float: right;
+}
+
+
+.user-block {
+  float: right;
   position: relative;
+}
+.user-block img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border: 1px lightgray solid;
+  margin: 5px 15px;
+}
+.user-block h3 {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 15px;
+}
+
+.user-block button {
+  vertical-align: top;
+  margin: 5px 2px;
+  border: 1px #ccd6d8 solid;
+  padding: 5px 15px;  
+  background-color: #eaf2f3;
+  font-size: 1.2em;
+  border-radius: 3px;
+}
+
+.btn-enabled {
+  color: blue;
+  font-weight: 600;
+}
+
+.btn-disabled {
+  color: lightblue;
+  font-weight: normal;
+}
+
+nav button {
+    border-radius: 3px;
+    position: relative;
     display: inline-block;
     vertical-align: top;
     width: auto;
@@ -110,6 +159,7 @@ nav button {
     transform-origin: 50% 50%;
     transition: all .3s linear;
 }
+
 
 main {
   margin: 5px 15px;
@@ -185,7 +235,7 @@ main {
 }
 
 main img {
- visibility: visible;
+ visibility: hidden;
 }
 
 
