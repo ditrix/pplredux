@@ -50,9 +50,9 @@ class App extends Component {
         </header>
         <nav>
           
-            <button onClick={this.butttonLoadDataClicked.bind(this)}>Загрузить</button>
-            <button onClick={this.butttonGetDataClicked.bind(this)}>Открыть</button>
-            <button onClick={this.butttonClearDataClicked.bind(this)}>Очистить</button>
+            <button onClick={this.butttonLoadDataClicked.bind(this)}>Load</button>
+            <button onClick={this.butttonGetDataClicked.bind(this)}>Open</button>
+            <button onClick={this.butttonClearDataClicked.bind(this)}>Clear</button>
         </nav>
         <main>
         { !this.props.people.isLoaded ? <p>loading...</p>: <Peoples people={people} /> }
