@@ -4,10 +4,24 @@ import {actionGetPeople,actionClearPeople, actionLoadPeople} from '../action'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
 import Person from '../components/Person'
+import {GOOGLE_CLIENT_ID} from '../constants' 
 import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
+
+ 
+  componentDidMount(){
+
+   
+    window.gapi.load('auth2',()=>{
+      window.gapi.auth2.init({
+        client_id: GOOGLE_CLIENT_ID,  
+      }).then(()=>{}, ()=>{console.log('error init api')})
+      
+    })
+  }
+
   butttonGetDataClicked(){
     this.props.getData(data)
   }
@@ -21,12 +35,25 @@ class App extends Component {
 
   }
 
-  butttonAuthClick(e){
-//      console.log(e.target.value)
-    //  console.log(this.props.user)
-      (this.props.user.isLoged)?
-        this.props.logoutUser():
-        this.props.loginUser()
+  signOut = () => {
+    const auth2 = window.gapi.auth2.getAuthInstance()
+    auth2.signOut().then(() => {
+      this.props.logoutUser()  
+    })
+        
+  }
+
+  signIn = () => {
+    const auth2 = window.gapi.auth2.getAuthInstance()
+    auth2.signIn().then(
+       googleUser => {
+       this.props.loginUser(googleUser.getBasicProfile())
+       } 
+    )
+  }
+
+   butttonAuthClick(e){
+    (this.props.user.isLoged)? this.signOut(): this.signIn()
   }
 
 
@@ -40,13 +67,15 @@ class App extends Component {
            <div><img src={logo} className="App-logo" alt="logo" /></div>
            <div><h1>0-800-50-15-60</h1><p>безкоштовна багатоканальна телефонна лінія</p></div>
            <div><h1>050-450-15-60</h1><p>вартість дзвінків відповідно до тарифів Вашого оператора</p></div>
+           
            <div className="user-block">
              <h3>{userName}</h3>
              <img src={userPic}/>
              <button  className="button-login" onClick={this.butttonAuthClick.bind(this)} value="login">
               {(isLoged)?<span>Logout</span>:<span>Login</span>}
              </button>  
-          </div>
+           </div>
+           
         </header>
         <nav>
           
@@ -55,7 +84,7 @@ class App extends Component {
             <button onClick={this.butttonClearDataClicked.bind(this)}>Clear</button>
         </nav>
         <main>
-        { !this.props.people.isLoaded ? <p>loading...</p>: <Peoples people={people} /> }
+        { !this.props.people.isLoaded ? <p>loading...</p>:<Peoples people={people} /> }
 
       </main>
         <footer>footer</footer>
@@ -79,7 +108,7 @@ const mapDispatchToPeops = dispatch => {
     clearPeople: () => dispatch(actionClearPeople()),
     getData: (people) => dispatch(actionGetPeople(people)),
     loadData: () => dispatch(actionLoadPeople()),
-    loginUser: () => dispatch({type: 'GET_USER_SUCCESS' }),
+    loginUser: (user) => dispatch({type: 'GET_USER_SUCCESS',payload: user }),
     logoutUser: () => dispatch({type: 'USER_LOGOUT'})
   }
 }
