@@ -174,6 +174,10 @@ main img {
  visibility: hidden;
 }
 
+.g-signin2 {
+  color: black;
+}
+
 
 /*.grid-person-ico, .grid-person-login, .grid-person-name, .grid-person-email, .grid-person-phone {
   float: left;

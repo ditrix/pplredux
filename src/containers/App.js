@@ -73,7 +73,7 @@ class App extends Component {
              <img src={userPic}/>
              <button  className="button-login" onClick={this.butttonAuthClick.bind(this)} value="login">
               {(isLoged)?<span>Logout</span>:<span>Login</span>}
-             </button>  
+             </button>               
            </div>
            
         </header>
