@@ -26,14 +26,6 @@ class App extends Component {
     this.props.getData(data)
   }
 
-  butttonClearDataClicked(){
-    this.props.clearPeople()
-  }
-
-  butttonLoadDataClicked(){
-    this.props.loadData(data)
-
-  }
 
   signOut = () => { 
     this.props.logoutUser()      
@@ -69,9 +61,9 @@ class App extends Component {
         </header>
         <nav>
           
-            <button onClick={this.butttonLoadDataClicked.bind(this)}>Load</button>
+            <button onClick={()=>{this.props.loadData()}}>Load</button>
             <button onClick={this.butttonGetDataClicked.bind(this)}>Open</button>
-            <button onClick={this.butttonClearDataClicked.bind(this)}>Clear</button>
+            <button onClick={()=>{this.props.clearPeople()} }>Clear</button>
         </nav>
         <main>
         { !this.props.people.isLoaded ? <p>loading...</p>:<Peoples people={people} /> }
