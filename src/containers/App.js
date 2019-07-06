@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {actionGetPeople,actionClearPeople, actionLoadPeople} from '../action'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
-import Person from '../components/Person'
+
 import {GOOGLE_CLIENT_ID} from '../constants' 
 import logo from '../logo.svg';
 import '../App.css';
@@ -60,7 +60,7 @@ class App extends Component {
   render(){
   
     const {people} = this.props.people
-    const {userName, isLoged, isFetching, userPic} = this.props.user
+    const {userName, isLoged, userPic} = this.props.user
     return (
       <div className="container">
         <header>
@@ -70,7 +70,7 @@ class App extends Component {
            
            <div className="user-block">
              <h3>{userName}</h3>
-             <img src={userPic}/>
+             <img src={userPic} alt="user" />
              <button  className="button-login" onClick={this.butttonAuthClick.bind(this)} value="login">
               {(isLoged)?<span>Logout</span>:<span>Login</span>}
              </button>               
