@@ -171,7 +171,7 @@ main {
 }
 
 main img {
- visibility: visible;
+ visibility: hidden;
 }
 
 .g-signin2 {
