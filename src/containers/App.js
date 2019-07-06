@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
-import {actionGetPeople,actionClearPeople, actionLoadPeople} from '../action'
+import {actionGetPeople,actionClearPeople, actionLoadPeople, actionSignIn} from '../action'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
 
@@ -50,6 +50,7 @@ class App extends Component {
        this.props.loginUser(googleUser.getBasicProfile())
        } 
     )
+    //this.props.loginUser()
   }
 
    butttonAuthClick(e){
@@ -97,9 +98,6 @@ const mapStateToProps = store => {
   return {
     people: store.people,
     user: store.user,
-    /*person: store.person,
-    personIsActive: store.person.isActive,*/
-
   }
 }
 
@@ -109,6 +107,7 @@ const mapDispatchToPeops = dispatch => {
     getData: (people) => dispatch(actionGetPeople(people)),
     loadData: () => dispatch(actionLoadPeople()),
     loginUser: (user) => dispatch({type: 'GET_USER_SUCCESS',payload: user }),
+    //loginUser: () => dispatch(actionSignIn()),
     logoutUser: () => dispatch({type: 'USER_LOGOUT'})
   }
 }
