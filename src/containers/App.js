@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
-import {actionGetPeople,actionClearPeople, actionLoadPeople, actionSignIn} from '../action'
+import {actionGetPeople,actionClearPeople,  actionLoadPeople} from '../action/PeopleActions'
+import  {actionSignIn, actionSignOut} from '../action/UserActions'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
 
@@ -12,8 +13,7 @@ class App extends Component {
 
  
   componentDidMount(){
-
-   
+  
     window.gapi.load('auth2',()=>{
       window.gapi.auth2.init({
         client_id: GOOGLE_CLIENT_ID,  
@@ -35,22 +35,12 @@ class App extends Component {
 
   }
 
-  signOut = () => {
-    const auth2 = window.gapi.auth2.getAuthInstance()
-    auth2.signOut().then(() => {
-      this.props.logoutUser()  
-    })
-        
+  signOut = () => { 
+    this.props.logoutUser()      
   }
 
   signIn = () => {
-    const auth2 = window.gapi.auth2.getAuthInstance()
-    auth2.signIn().then(
-       googleUser => {
-       this.props.loginUser(googleUser.getBasicProfile())
-       } 
-    )
-    //this.props.loginUser()
+   this.props.loginUser()
   }
 
    butttonAuthClick(e){
@@ -59,8 +49,7 @@ class App extends Component {
 
 
   render(){
-  
-    const {people} = this.props.people
+      const {people} = this.props.people
     const {userName, isLoged, userPic} = this.props.user
     return (
       <div className="container">
@@ -106,9 +95,9 @@ const mapDispatchToPeops = dispatch => {
     clearPeople: () => dispatch(actionClearPeople()),
     getData: (people) => dispatch(actionGetPeople(people)),
     loadData: () => dispatch(actionLoadPeople()),
-    loginUser: (user) => dispatch({type: 'GET_USER_SUCCESS',payload: user }),
-    //loginUser: () => dispatch(actionSignIn()),
-    logoutUser: () => dispatch({type: 'USER_LOGOUT'})
+    
+    loginUser: () => dispatch(actionSignIn()),
+    logoutUser: () => dispatch(actionSignOut()),
   }
 }
 

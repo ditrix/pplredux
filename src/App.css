@@ -178,6 +178,10 @@ main img {
   color: black;
 }
 
+.user-block h3 {
+  font-weight: normal;
+  color: gray;
+}
 
 /*.grid-person-ico, .grid-person-login, .grid-person-name, .grid-person-email, .grid-person-phone {
   float: left;

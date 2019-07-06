@@ -21,5 +21,5 @@ https://console.developers.google.com/
 
 TODO
 
-component User, actionUser, PropTypes
+component User, PropTypes
 
