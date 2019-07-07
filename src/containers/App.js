@@ -16,7 +16,7 @@ class App extends Component {
   
     window.gapi.load('auth2',()=>{
       window.gapi.auth2.init({
-        client_id: API_CLIENT_ID,  
+        client_id: `${API_CLIENT_ID}.apps.googleusercontent.com`  
       }).then(()=>{}, ()=>{console.log('error init api')})
       
     })
