@@ -5,7 +5,7 @@ import  {actionSignIn, actionSignOut} from '../action/UserActions'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
 
-import {GOOGLE_CLIENT_ID} from '../constants' 
+import {API_CLIENT_ID} from '../constants/apiId' 
 import logo from '../logo.svg';
 import '../App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
   
     window.gapi.load('auth2',()=>{
       window.gapi.auth2.init({
-        client_id: GOOGLE_CLIENT_ID,  
+        client_id: API_CLIENT_ID,  
       }).then(()=>{}, ()=>{console.log('error init api')})
       
     })
