@@ -4,6 +4,7 @@ import {actionGetPeople,actionClearPeople,  actionLoadPeople} from '../action/Pe
 import  {actionSignIn, actionSignOut} from '../action/UserActions'
 import {data} from '../devdata/data'
 import Peoples from '../components/Peoples'
+import AskoHeader from '../AskoHeader'
 
 import {API_CLIENT_ID} from '../constants/apiId' 
 import logo from '../logo.svg';
@@ -41,15 +42,12 @@ class App extends Component {
 
 
   render(){
-      const {people} = this.props.people
+    const {people} = this.props.people
     const {userName, isLoged, userPic} = this.props.user
     return (
       <div className="container">
         <header>
-           <div><img src={logo} className="App-logo" alt="logo" /></div>
-           <div><h1>0-800-50-15-60</h1><p>безкоштовна багатоканальна телефонна лінія</p></div>
-           <div><h1>050-450-15-60</h1><p>вартість дзвінків відповідно до тарифів Вашого оператора</p></div>
-           
+           <AskoHeader />
            <div className="user-block">
              <h3>{userName}</h3>
              <img src={userPic} alt="user" />
