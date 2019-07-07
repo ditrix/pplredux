@@ -21,6 +21,6 @@ export const  actionLoadPeople = () => {
 				fetch('https://api.randomuser.me/?results=30')
 	      .then(resp => resp.json()) // Transform the data into json
 	      .then(data => dispatch({type:LOAD_PEOPLE_SUCCESS,payload: data.results}))
-	      .catch(dispatch({type:LOAD_PEOPLE_ERROR}))
+	      .catch((error) => dispatch({type:LOAD_PEOPLE_ERROR}))
 			}
 }
