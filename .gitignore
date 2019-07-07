@@ -11,9 +11,6 @@
 # production
 /build
 
-#src
-/src/constants/apiId.js
-
 # misc
 .DS_Store
 .env.local
