@@ -12,7 +12,7 @@
 /build
 
 #src
-# /src/constants/apiId.js
+/src/constants/apiId.js
 
 # misc
 .DS_Store
