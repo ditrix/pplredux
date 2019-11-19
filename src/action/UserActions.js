@@ -1,4 +1,4 @@
-import { GET_USER_REQUEST, GET_USER_SUCCESS,GET_USER_ERROR, USER_LOGOUT} from '../constants'
+import {  GET_USER_SUCCESS, USER_LOGOUT} from '../constants'
 
 export const actionSignIn = () => {
   

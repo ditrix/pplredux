@@ -5,10 +5,7 @@ import  {actionSignIn, actionSignOut} from '../action/UserActions'
 import {data} from '../devdata/data'
 import {Footer} from '../components/Footer'
 import Peoples from '../components/Peoples'
-//import AskoHeader from '../AskoHeader'
-
 import {API_CLIENT_ID} from '../constants/apiId' 
-import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
